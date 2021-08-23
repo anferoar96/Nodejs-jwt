@@ -1,0 +1,17 @@
+version: "3.9"
+   
+services:
+    api1: 
+      build:
+        context: ./api
+        dockerfile: Dockerfile
+      ports: 
+        - 4001:4000
+      depends_on:
+          - db1
+    db1:
+      build:
+        context: ./database
+        dockerfile: Dockerfile
+      ports:
+        - 5430:5432
